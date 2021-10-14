@@ -15,4 +15,5 @@ declare class LoggerService {
     disableLogging(): void;
     protected opLogfile(): void;
 }
-export { LoggerService };
+declare const logger: () => LoggerService;
+export { LoggerService, logger };

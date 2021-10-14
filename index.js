@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.LoggerService = void 0;
+exports.logger = exports.LoggerService = void 0;
 const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const chalk_1 = __importDefault(require("chalk"));
@@ -134,3 +134,7 @@ class LoggerService {
     }
 }
 exports.LoggerService = LoggerService;
+const logger = () => {
+    return new LoggerService(() => path_1.default.resolve(''), '');
+};
+exports.logger = logger;
