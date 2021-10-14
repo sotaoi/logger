@@ -135,11 +135,11 @@ class LoggerService {
     }
 }
 exports.LoggerService = LoggerService;
-const logger = () => {
+const logger = (logpath = '') => {
     if (typeof _logger !== 'undefined') {
         return _logger;
     }
-    _logger = new LoggerService(() => path_1.default.resolve(''), '');
+    _logger = new LoggerService(() => path_1.default.resolve(''), logpath);
     return _logger;
 };
 exports.logger = logger;
