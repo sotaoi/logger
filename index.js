@@ -8,6 +8,7 @@ const fs_1 = __importDefault(require("fs"));
 const path_1 = __importDefault(require("path"));
 const chalk_1 = __importDefault(require("chalk"));
 const flatted_1 = require("flatted");
+let _logger;
 const log = console.log;
 const warn = console.warn;
 const error = console.error;
@@ -135,6 +136,10 @@ class LoggerService {
 }
 exports.LoggerService = LoggerService;
 const logger = () => {
-    return new LoggerService(() => path_1.default.resolve(''), '');
+    if (typeof _logger !== 'undefined') {
+        return _logger;
+    }
+    _logger = new LoggerService(() => path_1.default.resolve(''), '');
+    return _logger;
 };
 exports.logger = logger;
